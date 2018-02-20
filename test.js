@@ -45,8 +45,12 @@ function sendMessage(url, type) {
 
 function watchVariables() {
   console.log('watchVariables()')
-  
-  function addedOrChangedHandler({collection, id, fields}) {
+  function addedHandler({collection, id, fields}) {
+    if (collection === 'variables') {
+      console.log(`${id} = ${fields.value}`)
+    }
+  }
+  function changedHandler({collection, id, fields}) {
     if (collection === 'variables') {
       console.log(`${id} = ${fields.value}`)
       switch(id) {
@@ -90,8 +94,8 @@ function watchVariables() {
   }
   const connection = createConnection()
   connection.ddp
-    .on('added', addedOrChangedHandler)
-    .on('changed', addedOrChangedHandler)
+    .on('added', addedHandler)
+    .on('changed', changedHandler)
 
   subscribeVariables()
 }
