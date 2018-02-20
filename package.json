@@ -1,0 +1,19 @@
+{
+  "name": "acgn-stock-websocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/babel-cli/bin/babel-node.js --presets node6 ./test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "asteroid": "^2.0.3",
+    "babel-cli": "^6.26.0",
+    "babel-preset-node6": "^11.0.0",
+    "request": "^2.83.0",
+    "ws": "^4.0.0"
+  }
+}
